@@ -49,9 +49,11 @@ Options:
 ```
 #### Examples
 Lookup country level centroids from `test-adm0.csv` where country names are in column named name_0.
+
 `centroid-lookup adm0 --adm0 name_0 test-adm0.csv`
 
 Lookup county or level 2 area from `test-adm2.xlsx` where country, state, and county column names are name_0, name_1, and name_2 respectively.
+
 `centroid-lookup adm2 --adm0 name_0 --adm1 name_1 --adm2 name_2 test-adm2.xlsx`
 
 ## Known issues
