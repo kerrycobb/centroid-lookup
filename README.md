@@ -7,8 +7,6 @@ pip install git+https://github.com/kerrycobb/centroid-lookup
 ```
 
 ## Usage
-### Command Line Usage
-
 View help menu showing all available commands `centroid-lookup --help`
 
 ```
@@ -49,9 +47,15 @@ Options:
   -s, --sheet TEXT   sheet name if input is excel spreadsheet
   -h, --help         Show this message and exit.
 ```
+#### Examples
+Lookup country level centroids from `test-adm0.csv` where country names are in column named name_0.
+`centroid-lookup adm0 --adm0 name_0 test-adm0.csv`
 
-## Util
-`compute_gadm_centroids.py` is a script for downloading GADM data and computing centroids. This is how the data that are downloaded when installing centroid lookup were generated.
+Lookup county or level 2 area from `test-adm2.xlsx` where country, state, and county column names are name_0, name_1, and name_2 respectively.
+`centroid-lookup adm2 --adm0 name_0 --adm1 name_1 --adm2 name_2 test-adm2.xlsx`
 
 ## Known issues
 Alaska > Aleutians West centroid location way off
+
+## Util
+`util/compute_gadm_centroids.py` is a script for downloading GADM data and computing centroids. This is how the data that are downloaded when installing centroid lookup were generated.
