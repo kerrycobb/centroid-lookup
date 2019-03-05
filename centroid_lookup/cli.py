@@ -5,8 +5,8 @@ import centroid_lookup as cl
 global_options = [
     click.argument('input', type=click.Path(exists=True)),
     click.option('--output', '-o', default=None, help='Path to output file. Defaults to centroid-lookup.out.csv'),
-    # click.option('--sheet', )
-]
+    click.option('--sheet', '-s', default=None, help='sheet name if input is excel spreadsheet' )
+    ]
 
 lvl_options = [
     click.option('--adm0', '-0', default='adm0', help='Adm level 0 column header in input file'),
@@ -15,7 +15,7 @@ lvl_options = [
     click.option('--adm3', '-3', default='adm3', help='Adm level 3 column header in input file'),
     click.option('--adm4', '-4', default='adm4', help='Adm level 4 column header in input file'),
     click.option('--adm5', '-5', default='adm5', help='Adm level 5 column header in input file'),
-]
+    ]
 
 def add_options(options):
     def _add_options(func):
@@ -26,7 +26,10 @@ def add_options(options):
 
 @click.group(context_settings=dict(help_option_names=['-h', '--help']))
 def cli():
-    '''Look up centroid of GADM administrative areas in csv file or excel spreadsheet'''
+    '''
+    Look up centroid of GADM administrative areas in csv file or excel spreadsheet.\n
+    INPUT can be csv or xlsx
+    '''
     pass
 
 ################################################################################
