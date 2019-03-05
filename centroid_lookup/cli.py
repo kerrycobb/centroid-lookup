@@ -4,7 +4,8 @@ import centroid_lookup as cl
 
 global_options = [
     click.argument('input', type=click.Path(exists=True)),
-    click.option('--output', '-o', default=None, help='Path to output file. Defaults to <input-path>/centroid-lookup.out.<input-file-ext>'),
+    click.option('--output', '-o', default=None, help='Path to output file. Defaults to centroid-lookup.out.csv'),
+    # click.option('--sheet', )
 ]
 
 lvl_options = [
@@ -25,7 +26,7 @@ def add_options(options):
 
 @click.group(context_settings=dict(help_option_names=['-h', '--help']))
 def cli():
-    '''Docstring'''
+    '''Look up centroid of GADM administrative areas in csv file or excel spreadsheet'''
     pass
 
 ################################################################################
@@ -34,7 +35,7 @@ def cli():
 @add_options(lvl_options[:1])
 @add_options(global_options)
 def adm0(input, adm0, output):
-    '''Docstring'''
+    '''Look up centroid of level 0 GADM administrative areas'''
     cl.lookup_from_file(input, [adm0], output=output)
 
 
@@ -44,7 +45,7 @@ def adm0(input, adm0, output):
 @add_options(lvl_options[:2])
 @add_options(global_options)
 def adm1(input, adm0, adm1, output):
-    '''Docstring'''
+    '''Look up centroid of level 1 GADM administrative areas'''
     cl.lookup_from_file(input, [adm0, adm1], output=output)
 #
 #
@@ -54,7 +55,7 @@ def adm1(input, adm0, adm1, output):
 @add_options(lvl_options[:3])
 @add_options(global_options)
 def adm2(input, adm0, adm1, adm2, output):
-    '''Docstring'''
+    '''Look up centroid of level 2 GADM administrative areas'''
     cl.lookup_from_file(input, [adm0, adm1, adm2], output=output)
 
 
@@ -64,7 +65,7 @@ def adm2(input, adm0, adm1, adm2, output):
 @add_options(lvl_options[:4])
 @add_options(global_options)
 def adm3(input, adm0, adm1, adm2, adm3, output):
-    '''Docstring'''
+    '''Look up centroid of level 3 GADM administrative areas'''
     cl.lookup_from_file(input, [adm0, adm1, adm2, adm3], output=output)
 
 
@@ -74,7 +75,7 @@ def adm3(input, adm0, adm1, adm2, adm3, output):
 @add_options(lvl_options[:5])
 @add_options(global_options)
 def adm4(input, adm0, adm1, adm2, adm3, adm4, output):
-    '''Docstring'''
+    '''Look up centroid of level 4 GADM administrative areas'''
     cl.lookup_from_file(input, [adm0, adm1, adm2, adm3, adm4], output=output)
 
 
@@ -84,5 +85,5 @@ def adm4(input, adm0, adm1, adm2, adm3, adm4, output):
 @add_options(lvl_options)
 @add_options(global_options)
 def adm5(input, adm0, adm1, adm2, adm3, adm4, adm5, output):
-    '''Docstring'''
+    '''Look up centroid of level 5 GADM administrative areas'''
     cl.lookup_from_file(input, [adm0, adm1, adm2, adm3, adm4, adm5], output=output)
